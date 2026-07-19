@@ -46,44 +46,32 @@ El objetivo era reducir trabajo manual, minimizar errores y facilitar la gestió
 
 # Componentes del sistema
 
-## TPV
+## TPV (punto de venta)
 
-Aplicación principal para gestionar ventas, pedidos y cobros.
-
----
-
-## Panel de Administración
-
-Herramienta para gestionar:
-
-* Productos.
-* Categorías.
-* Stock.
-* Usuarios.
-* Configuración del negocio.
-* Estadísticas básicas.
-
----
+Aplicación principal para gestionar ventas, pedidos y cobros, con interfaz táctil pensada para uso rápido en mostrador.
 
 ## Kitchen Display System (KDS)
 
-Sistema diseñado para que cocina pudiera recibir automáticamente los pedidos sin necesidad de imprimir tickets.
+Pantalla para cocina: cada nuevo pedido aparece automáticamente en el momento en que se realiza, sin imprimir tickets, gracias a la sincronización en tiempo real.
 
-Cada nuevo pedido aparecía inmediatamente en pantalla gracias a la sincronización en tiempo real.
+## Panel de Administración
+
+Gestión de productos, categorías, stock, usuarios, configuración del negocio y estadísticas.
+
+## Aplicación del cliente (PWA)
+
+App instalable desde el navegador: el cliente consulta el menú, hace su pedido desde el móvil y este llega directamente a cocina.
 
 ---
 
-## Gestión de Inventario
+# Detalles técnicos
 
-Sistema para controlar el stock disponible y facilitar la administración de productos.
-
----
-
-## Sincronización en tiempo real
-
-Uno de los aspectos que más me interesaba del proyecto era conseguir que todas las aplicaciones permanecieran sincronizadas.
-
-Cuando una acción ocurría en una parte del sistema, el resto de aplicaciones reflejaban automáticamente los cambios.
+* **4 aplicaciones sincronizadas en tiempo real** mediante Supabase Realtime: cuando algo cambia en una, todas las demás reaccionan al instante.
+* **Fallback offline:** si la conexión falla, las aplicaciones siguen sincronizándose localmente mediante BroadcastChannel.
+* **Internacionalización completa en 4 idiomas** (español, catalán, portugués e inglés), pensando en el público real de la zona.
+* **Catálogo real** con 58 productos y fotografías.
+* **PWA instalable**, con manifest y funcionamiento tipo app nativa.
+* Interfaz animada y responsive con Framer Motion.
 
 ---
 
@@ -93,21 +81,11 @@ Mientras desarrollábamos el sistema apareció una nueva oportunidad.
 
 Observé que muchos clientes esperaban sentados a que un camarero tomara nota de su pedido.
 
-Entonces propuse una alternativa.
+Entonces propuse una alternativa: ¿y si el propio cliente pudiera realizar el pedido desde su móvil?
 
-¿Y si el propio cliente pudiera realizar el pedido desde su móvil?
+Escanear un código QR, consultar el menú, pedir, pagar desde el teléfono y enviar el pedido directamente a cocina.
 
-La idea consistía en desarrollar una aplicación donde el usuario pudiera:
-
-* Escanear un código QR.
-* Consultar el menú.
-* Realizar el pedido.
-* Pagar desde el teléfono.
-* Enviar automáticamente el pedido a cocina.
-
-El personal únicamente tendría que entregar el pedido cuando estuviera preparado.
-
-Aunque esta evolución nunca llegó a desarrollarse completamente, fue una experiencia muy interesante porque me hizo comprender la importancia de cuestionar continuamente la solución inicial.
+Aunque esta evolución nunca llegó a desarrollarse completamente, me hizo comprender la importancia de cuestionar continuamente la solución inicial.
 
 A veces el mejor producto aparece cuando dejamos de pensar en la petición del cliente y empezamos a entender realmente su problema.
 
@@ -135,13 +113,16 @@ Fue la primera vez que experimenté cómo una conversación podía cambiar compl
 
 # Tecnologías utilizadas
 
-* React.
+* React 19.
 * TypeScript.
+* Vite.
 * Tailwind CSS.
-* Supabase.
-* PostgreSQL.
-* Sincronización en tiempo real.
+* Framer Motion.
+* Zustand.
+* Supabase (PostgreSQL + Realtime).
+* BroadcastChannel (fallback offline).
 * Progressive Web Apps (PWA).
+* i18n (ES / CA / PT / EN).
 * Vercel.
 * Git.
 
@@ -153,7 +134,7 @@ Fue la primera vez que experimenté cómo una conversación podía cambiar compl
 * Diseño de la arquitectura.
 * Desarrollo Full Stack.
 * Diseño de la experiencia de usuario.
-* Integración entre aplicaciones.
+* Integración en tiempo real entre aplicaciones.
 * Despliegue de demostraciones funcionales.
 * Presentación del producto al cliente.
 * Evolución del proyecto según el feedback recibido.

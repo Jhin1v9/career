@@ -1,133 +1,123 @@
-# Santa Fe Construcciones
+# Landing Page Creator
 
 ## Estado
 
-Proyecto para cliente · Finalizado
+Producto interno · Desarrollo activo · Desplegado en VPS
 
 ---
 
-# ¿Qué es este proyecto?
+# ¿Qué es Landing Page Creator?
 
-Santa Fe Construcciones fue el primer sitio web corporativo que desarrollé para una empresa del sector de la construcción dentro de NEXO Digital.
+Landing Page Creator es una plataforma que genera landing pages completas a partir de una conversación con inteligencia artificial.
 
-Aunque, a primera vista, pudiera parecer simplemente una página web, el proyecto implicó mucho más que diseñar una interfaz atractiva.
+Describes la página que necesitas y el sistema la construye paso a paso delante de ti: analiza tu intención, diseña la estructura, escribe el código y revisa su propio trabajo antes de entregarlo.
 
-El objetivo era construir la presencia digital de una empresa que hasta ese momento apenas tenía visibilidad en Internet.
+Pero lo que la hace especial no es solo generar páginas.
 
----
-
-# El reto
-
-Cuando comenzamos el proyecto, el cliente necesitaba una página web profesional que transmitiera confianza y facilitara el contacto con nuevos clientes.
-
-Sin embargo, durante las conversaciones entendimos que una buena web por sí sola no era suficiente.
-
-Si nadie conseguía encontrarla, el trabajo estaría incompleto.
-
-Por eso el proyecto terminó incluyendo aspectos relacionados con posicionamiento, visibilidad y optimización, además del propio desarrollo.
+Es lo que ocurre después.
 
 ---
 
-# Una decisión importante
+# El problema
 
-Mi primera idea fue desarrollar el proyecto utilizando Next.js.
+En NEXO Digital, crear landing pages es una necesidad constante.
 
-Era la tecnología con la que me sentía más cómodo y pensaba que ofrecía ventajas importantes para SEO y rendimiento.
+Para nosotros y para nuestros clientes.
 
-Sin embargo, el cliente prefirió utilizar WordPress.
+Y cada landing page significaba repetir el mismo ciclo: montar el proyecto, estructurar secciones, escribir textos, ajustar estilos, preparar el despliegue.
 
-En ese momento entendí algo importante.
+Era trabajo real, pero también era trabajo repetido.
 
-Como desarrollador, mi responsabilidad no consiste en imponer la tecnología que más me gusta.
+Me hice la pregunta de siempre:
 
-Consiste en elegir la mejor solución dentro del contexto del proyecto y respetar las necesidades del cliente.
-
-Acepté el reto y aproveché la oportunidad para aprender una herramienta nueva mientras mantenía el mismo nivel de calidad que habría buscado utilizando cualquier otra tecnología.
+> ¿Tiene sentido seguir haciendo esto a mano cada vez?
 
 ---
 
-# Desarrollo
+# Cómo funciona la generación
 
-Durante el proyecto participé en diferentes áreas.
+El sistema ejecuta un pipeline de 4 fases con IA, con streaming en tiempo real (SSE) para que veas la página construirse:
 
-No solo desarrollé el sitio web.
+1. **Intención:** interpreta tu descripción y produce un brief estructurado.
+2. **Estructura:** define el diseño — colores, tipografía, secciones — como tokens de diseño.
+3. **Código:** genera la página completa en un único HTML con Tailwind.
+4. **Revisión:** un paso de QA donde la propia IA evalúa el resultado antes de entregarlo.
 
-También colaboré en la construcción de toda la presencia digital del cliente.
+Todo el proceso es resistente a fallos: reintentos, continuación automática cuando el modelo responde algo inesperado y rollback a la última versión válida de la página.
 
-Entre otras tareas:
-
-* Desarrollo del sitio web.
-* Adaptación responsive.
-* Optimización del rendimiento.
-* Configuración de formularios.
-* Protección mediante Google reCAPTCHA.
-* Optimización SEO.
-* Configuración del perfil de Google Business.
-* Revisión de la experiencia de usuario.
-* Publicación y despliegue.
+La IA funciona a través del mismo puente que Luna: modelos de lenguaje potentes operados por el navegador, sin depender de APIs de pago.
 
 ---
 
-# SEO
+# El ciclo completo: de tu página a plantilla reutilizable
 
-Uno de los objetivos era conseguir que la empresa pudiera competir en los resultados de búsqueda con negocios que llevaban mucho más tiempo posicionados.
+Esta es la parte que más me gusta del proyecto.
 
-Analicé diferentes páginas del sector para entender qué aspectos podían mejorarse.
+Cuando decides publicar tu landing page, empieza un segundo pipeline:
 
-A partir de ese análisis fui optimizando la estructura del sitio, el contenido y diferentes aspectos técnicos relacionados con el SEO.
+1. **Sanitización con IA:** Luna analiza tu página y elimina todo lo personal — nombres, correos, teléfonos, logotipos, marca — sustituyéndolos por marcadores genéricos, sin tocar el diseño.
+2. **QA técnico y refinado:** si la revisión encuentra problemas, el sistema los corrige y genera la metadata de la plantilla: categoría, etiquetas, características, casos de uso.
+3. **Publicación en NEXO Store:** la plantilla sanitizada viaja automáticamente a nuestra tienda, con su miniatura generada por screenshot, lista para que otros la reutilicen.
 
-Poco después de la publicación conseguimos posicionarnos muy bien para el nombre comercial de la empresa, superando incluso algunos resultados con mayor antigüedad.
+Y si la IA falla en algún paso, el sistema no se rompe: aplica una sanitización determinística de respaldo y publica la plantilla como "sin revisar", a mitad de precio.
 
-Fue una experiencia muy motivadora porque pude comprobar cómo pequeñas decisiones técnicas también pueden generar un impacto importante para un negocio.
+El resultado es un ciclo que se retroalimenta: cuanta más gente crea páginas, más plantillas existen; cuantas más plantillas existen, más útil es la plataforma.
 
 ---
 
-# Mi aprendizaje
+# La economía interna
 
-Este proyecto me enseñó que una página web no termina cuando se publica.
+La plataforma tiene su propio sistema de tres monedas virtuales —estrellas, soles y lunas— con cambio entre ellas.
 
-El verdadero objetivo es que ayude a la empresa.
+Generar páginas cuesta monedas. Publicar cuesta monedas. Y comprar la plantilla de otra persona también.
 
-Una buena experiencia de usuario, un buen posicionamiento y una comunicación clara pueden ser tan importantes como el propio desarrollo.
+Cuando alguien compra una plantilla, la venta se registra y se notifica al sistema financiero de la empresa, y el comprador desbloquea tanto la plantilla como el prompt original que la generó.
 
-También aprendí a trabajar con tecnologías fuera de mi zona de confort y a adaptarme a las necesidades del cliente sin perder el foco en la calidad del resultado final.
+---
+
+# Qué aprendí
+
+Este proyecto me enseñó que la IA generativa es solo la mitad del problema.
+
+La otra mitad es todo lo que la rodea: comprobar que el resultado funciona, proteger los datos personales de los usuarios, convertir cada creación en un activo reutilizable y hacer que el sistema se degrade con elegancia en lugar de romperse.
+
+También aprendí a documentar mis propios errores: este proyecto pasó por una auditoría completa donde encontré y corregí decisiones mal tomadas en versiones anteriores. Esa cultura de revisión honesta es hoy parte de cómo trabajo.
 
 ---
 
 # Tecnologías utilizadas
 
-* WordPress.
-* PHP.
-* HTML.
-* CSS.
-* JavaScript.
-* Google reCAPTCHA.
-* Google Business Profile.
-* SEO On-Page.
+* Node.js + Express (unas 70 rutas de API).
+* SQLite con 19 migraciones.
+* Svelte 4 + Vite + Tailwind CSS.
+* Server-Sent Events (streaming en tiempo real).
+* Automatización de navegador con Playwright/CDP (puente con modelos de lenguaje).
+* Sistema de economía virtual multi-moneda.
+* Integración con la API de NEXO Store.
+* Jest + Supertest + Playwright (unos 300 tests).
+* Docker, PM2.
+
+Unas 53.000 líneas de código.
 
 ---
 
 # Mi papel
 
-* Análisis de requisitos.
-* Desarrollo del sitio web.
-* Optimización SEO.
-* Configuración técnica.
-* Protección contra spam.
-* Optimización para dispositivos móviles.
-* Despliegue.
-* Soporte durante la entrega del proyecto.
+* Idea original.
+* Diseño del producto y de la economía interna.
+* Arquitectura del pipeline de generación y sanitización.
+* Desarrollo completo (backend, frontend, tests).
+* Integración con NEXO Store.
+* Despliegue y operación en VPS.
 
 ---
 
 # Qué representa este proyecto
 
-Santa Fe Construcciones representa una lección que considero muy importante.
+Landing Page Creator representa mi forma de atacar el trabajo repetitivo.
 
-La mejor tecnología no siempre es la que uno habría elegido.
+Cuando algo se hace varias veces, merece convertirse en herramienta.
 
-La mejor tecnología es aquella que permite entregar valor al cliente de la forma más adecuada para su contexto.
+Y cuando esa herramienta además protege a sus usuarios, aprende de cada creación y convierte el trabajo de uno en valor para todos, deja de ser un simple generador.
 
-Este proyecto reforzó una idea que intento aplicar desde entonces:
-
-Antes que defender una herramienta, prefiero construir una buena solución.
+Se convierte en plataforma.

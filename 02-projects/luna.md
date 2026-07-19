@@ -2,7 +2,7 @@
 
 ## Estado
 
-Proyecto personal · Desarrollo activo
+Proyecto personal · Desarrollo activo · En uso diario
 
 ---
 
@@ -10,9 +10,11 @@ Proyecto personal · Desarrollo activo
 
 Luna es el proyecto más ambicioso que he desarrollado hasta la fecha.
 
-Nació como una necesidad personal y, con el tiempo, evolucionó hasta convertirse en una plataforma de automatización basada en inteligencia artificial que utilizo diariamente para acelerar mi trabajo, experimentar con nuevas ideas y construir productos con mayor rapidez.
+Es un agente de IA capaz de ejecutar acciones reales en mi equipo: leer y modificar archivos, ejecutar comandos, trabajar con git, consultar APIs y automatizar procesos completos.
 
-Más que un asistente, Luna funciona como un entorno de trabajo capaz de colaborar conmigo durante el desarrollo de software.
+La particularidad: lo hace a través de las interfaces web de modelos de lenguaje, sin depender de APIs de pago.
+
+Más que un asistente, Luna funciona como un entorno de trabajo que colabora conmigo durante el desarrollo de software. La utilizo todos los días.
 
 ---
 
@@ -20,13 +22,9 @@ Más que un asistente, Luna funciona como un entorno de trabajo capaz de colabor
 
 La idea apareció mientras trabajaba con modelos locales de inteligencia artificial.
 
-En aquel momento intentaba automatizar diferentes tareas utilizando modelos ejecutados en mi propio ordenador.
+Los modelos que podía ejecutar con mi hardware no ofrecían la calidad necesaria para problemas complejos.
 
-Aunque el enfoque era interesante, pronto encontré una limitación importante: los modelos locales que podía ejecutar con mi hardware no ofrecían la calidad necesaria para resolver problemas complejos.
-
-Podía automatizar ciertas tareas, pero la precisión era insuficiente.
-
-En lugar de aceptar esa limitación, decidí hacerme una pregunta diferente.
+En lugar de aceptar esa limitación, me hice una pregunta diferente.
 
 > ¿Y si pudiera utilizar modelos mucho más potentes sin depender de una API de pago?
 
@@ -34,60 +32,43 @@ Esa pregunta fue el punto de partida de Luna.
 
 ---
 
-# El problema
-
-Quería acceder a modelos de lenguaje avanzados.
-
-Pero no quería construir un producto cuyo funcionamiento dependiera de pagar una API por cada petición.
-
-Busqué diferentes alternativas.
-
-Probé herramientas existentes.
-
-Experimenté con varios enfoques.
-
-Descarté numerosas ideas.
-
-Ninguna resolvía exactamente el problema que tenía.
-
-Entonces decidí construir mi propia solución.
-
----
-
 # La idea
 
-Diseñé un sistema capaz de interactuar con interfaces web de modelos de inteligencia artificial.
+Las interfaces web de los modelos más avanzados ya existen y ya son capaces de razonar.
 
-En lugar de comunicarse mediante una API tradicional, Luna trabaja sobre conversaciones reales mantenidas a través del navegador.
+Lo que no pueden hacer es actuar en el mundo real.
 
-Para que esto fuera posible diseñé un protocolo propio basado en bloques estructurados que permiten intercambiar instrucciones entre la inteligencia artificial y mi entorno local.
-
-Cuando el modelo necesita ejecutar una acción, genera una estructura específica.
-
-Luna interpreta esa información, ejecuta la tarea correspondiente en mi ordenador y devuelve automáticamente el resultado a la conversación para continuar el flujo de trabajo.
-
-Este mecanismo permite crear procesos complejos manteniendo una interacción completamente natural.
+Luna resuelve exactamente eso: convierte la conversación con el modelo en un puente entre su razonamiento y mi máquina.
 
 ---
 
-# Evolución
+# Cómo funciona por dentro
 
-Lo que comenzó siendo una simple prueba terminó creciendo mucho más de lo que imaginaba.
+Luna es una arquitectura de agentes que rodea la conversación con la IA web:
 
-Con el tiempo Luna empezó a incorporar nuevas capacidades.
+1. **Un agente abre la interfaz web del modelo** (Kimi, DeepSeek) en un Chrome real controlado por Playwright/CDP, e inyecta las instrucciones del sistema: qué herramientas existen, cómo invocarlas mediante bloques JSON estructurados y cómo interpretar los resultados.
 
-Entre ellas:
+2. **Cuando el modelo decide usar una herramienta**, genera un bloque JSON en su respuesta. Un sistema de detección en 3 capas lo captura —extensión de Chrome con MutationObserver, interceptor de red nativo CDP y extracción de estructura DOM, con deduplicación en 4 niveles— para que ninguna llamada se pierda ni se ejecute dos veces.
 
-* Automatización de tareas repetitivas.
-* Generación de proyectos.
-* Modificación de código existente.
-* Integración con Telegram.
-* Herramientas para el desarrollo diario.
-* Automatización de procesos internos de NEXO Digital.
+3. **El kernel ejecuta la acción en mi equipo**: archivos, shell, git, búsqueda web, APIs internas. Son 123 herramientas registradas, protegidas por un Tool Guard con reintentos y backoff exponencial, circuit breakers, claves de idempotencia, validación de esquemas y checkpoints automáticos en git.
 
-Actualmente forma parte de mi flujo de trabajo diario.
+4. **El resultado vuelve al chat** para que el modelo continúe razonando, en un bucle multi-turno hasta completar la tarea.
 
-Muchas de las herramientas que desarrollo comienzan directamente desde Luna.
+Y lo más importante para la experiencia: **el usuario no ve nada de esa maquinaria**. La interfaz propia de Luna traduce todo el proceso a una conversación visual limpia —burbujas de herramientas, resultados estilizados, estados de ejecución— construida con Svelte y actualizada en tiempo real.
+
+---
+
+# Capacidades reales
+
+* **Bucle agéntico multi-turno** con parseo tolerante de JSON y recuperación de errores.
+* **123 herramientas locales** ejecutables por el modelo.
+* **Plan Mode:** modo de investigación de solo lectura que analiza el problema y presenta un plan para aprobar, rechazar o revisar antes de tocar nada.
+* **Validador de código** posterior a cada escritura: detecta JSX desbalanceado, archivos truncados o imports rotos, con auto-corrección.
+* **Compactación de contexto segura:** cuando la conversación crece demasiado, genera un resumen de estado y lo traslada a un nuevo hilo sin perder información.
+* **Multi-proveedor:** funciona sobre distintos modelos web con un sistema de descubrimiento de selectores y fallbacks.
+* **Bot de Telegram:** permite ejecutar acciones del ecosistema NEXO desde el móvil —crear tareas, registrar pagos, consultar información— con un perímetro de seguridad restringido a herramientas del dashboard.
+* **Memoria viva:** un hook post-commit mantiene una base de conocimiento del propio proyecto (`.brain/`) actualizada automáticamente por IA después de cada cambio.
+* **Instalador de un comando** y sincronización entre 3 equipos y un VPS.
 
 ---
 
@@ -95,31 +76,26 @@ Muchas de las herramientas que desarrollo comienzan directamente desde Luna.
 
 Luna me enseñó mucho más que programación.
 
-Me obligó a investigar arquitecturas diferentes, experimentar continuamente y aceptar que muchas buenas ideas no funcionan a la primera.
+Me obligó a investigar arquitecturas diferentes, a hacer ingeniería inversa de interfaces web en tiempo real, y a aceptar que muchas buenas ideas no funcionan a la primera.
 
-También aprendí que construir un producto consiste en iterar constantemente.
-
-Muchas funcionalidades actuales nacieron después de varios intentos completamente distintos.
-
-Ese proceso me permitió desarrollar una forma de trabajar basada en experimentar, medir resultados y mejorar continuamente.
+También aprendí que construir un producto consiste en iterar constantemente: muchas funcionalidades actuales nacieron después de varios intentos completamente distintos.
 
 ---
 
 # Tecnologías utilizadas
 
-Dependiendo del módulo:
-
-* React.
-* Svelte.
 * Node.js.
-* TypeScript.
-* Playwright.
-* Linux.
-* Automatización.
-* Integración con modelos de lenguaje.
+* Playwright / Chrome DevTools Protocol.
+* Extensión de Chrome (Manifest V3).
+* Express, WebSocket y SSE.
+* PostgreSQL.
+* Svelte 4 + Vite + Tailwind CSS.
+* Bot de Telegram.
+* PM2 (5 procesos en producción).
 * Git.
-* Docker.
-* Vercel.
+* Linux.
+
+Monorepo pnpm con 3 paquetes: kernel, dashboard y web.
 
 ---
 

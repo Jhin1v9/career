@@ -1,133 +1,77 @@
-# Santa Fe Construcciones
+# OnaDance
 
 ## Estado
 
-Proyecto para cliente · Finalizado
+Proyecto para cliente · Mantenimiento y evolución continua
 
 ---
 
 # ¿Qué es este proyecto?
 
-Santa Fe Construcciones fue el primer sitio web corporativo que desarrollé para una empresa del sector de la construcción dentro de NEXO Digital.
+OnaDance es una escuela de danza cuyo sitio web mantenemos y mejoramos de forma continua dentro de NEXO Digital.
 
-Aunque, a primera vista, pudiera parecer simplemente una página web, el proyecto implicó mucho más que diseñar una interfaz atractiva.
-
-El objetivo era construir la presencia digital de una empresa que hasta ese momento apenas tenía visibilidad en Internet.
+A diferencia de un proyecto con principio y fin, este es un trabajo de evolución permanente: el sitio ya existía y nuestro papel es cuidarlo, mejorarlo y asegurar que siga respondiendo a las necesidades del negocio.
 
 ---
 
 # El reto
 
-Cuando comenzamos el proyecto, el cliente necesitaba una página web profesional que transmitiera confianza y facilitara el contacto con nuevos clientes.
+Un sitio web vivo necesita atención constante.
 
-Sin embargo, durante las conversaciones entendimos que una buena web por sí sola no era suficiente.
+Contenidos que cambian, dispositivos nuevos, pequeños errores que aparecen con el tiempo, mejoras de experiencia que el cliente va pidiendo sobre la marcha.
 
-Si nadie conseguía encontrarla, el trabajo estaría incompleto.
+El reto aquí no era construir algo desde cero.
 
-Por eso el proyecto terminó incluyendo aspectos relacionados con posicionamiento, visibilidad y optimización, además del propio desarrollo.
-
----
-
-# Una decisión importante
-
-Mi primera idea fue desarrollar el proyecto utilizando Next.js.
-
-Era la tecnología con la que me sentía más cómodo y pensaba que ofrecía ventajas importantes para SEO y rendimiento.
-
-Sin embargo, el cliente prefirió utilizar WordPress.
-
-En ese momento entendí algo importante.
-
-Como desarrollador, mi responsabilidad no consiste en imponer la tecnología que más me gusta.
-
-Consiste en elegir la mejor solución dentro del contexto del proyecto y respetar las necesidades del cliente.
-
-Acepté el reto y aproveché la oportunidad para aprender una herramienta nueva mientras mantenía el mismo nivel de calidad que habría buscado utilizando cualquier otra tecnología.
+Era entrar en un proyecto existente, entenderlo y mejorarlo sin romper lo que ya funcionaba.
 
 ---
 
-# Desarrollo
+# Qué hacemos
 
-Durante el proyecto participé en diferentes áreas.
+Nuestro trabajo incluye:
 
-No solo desarrollé el sitio web.
-
-También colaboré en la construcción de toda la presencia digital del cliente.
-
-Entre otras tareas:
-
-* Desarrollo del sitio web.
-* Adaptación responsive.
-* Optimización del rendimiento.
-* Configuración de formularios.
-* Protección mediante Google reCAPTCHA.
-* Optimización SEO.
-* Configuración del perfil de Google Business.
-* Revisión de la experiencia de usuario.
-* Publicación y despliegue.
+* Revisión funcional del sitio: detectar lo que falla o puede mejorar.
+* Optimización para dispositivos móviles, donde la mayoría de los usuarios navegan.
+* Mejoras de experiencia de usuario basadas en cómo los visitantes utilizan realmente la página.
+* Mantenimiento continuo y pequeñas evoluciones según las necesidades de la escuela.
 
 ---
 
-# SEO
+# Una particularidad de este proyecto
 
-Uno de los objetivos era conseguir que la empresa pudiera competir en los resultados de búsqueda con negocios que llevaban mucho más tiempo posicionados.
+OnaDance también fue el primer cliente real en utilizar nuestra plataforma NEXO Workspace.
 
-Analicé diferentes páginas del sector para entender qué aspectos podían mejorarse.
+Eso convirtió el proyecto en algo especial: no solo manteníamos su sitio web, sino que la propia escuela usaba nuestras herramientas para comunicarse con nosotros y hacer seguimiento de sus solicitudes.
 
-A partir de ese análisis fui optimizando la estructura del sitio, el contenido y diferentes aspectos técnicos relacionados con el SEO.
-
-Poco después de la publicación conseguimos posicionarnos muy bien para el nombre comercial de la empresa, superando incluso algunos resultados con mayor antigüedad.
-
-Fue una experiencia muy motivadora porque pude comprobar cómo pequeñas decisiones técnicas también pueden generar un impacto importante para un negocio.
+Era nuestra plataforma funcionando con un cliente de verdad, no una demo.
 
 ---
 
-# Mi aprendizaje
+# Qué aprendí
 
-Este proyecto me enseñó que una página web no termina cuando se publica.
+Este proyecto me enseñó un tipo de responsabilidad diferente a la de crear algo nuevo.
 
-El verdadero objetivo es que ayude a la empresa.
+Cuando mantienes el sitio de un negocio real, cada cambio tiene consecuencias directas.
 
-Una buena experiencia de usuario, un buen posicionamiento y una comunicación clara pueden ser tan importantes como el propio desarrollo.
+Aprendí a trabajar con cuidado, a probar antes de publicar y a valorar la estabilidad tanto como las mejoras.
 
-También aprendí a trabajar con tecnologías fuera de mi zona de confort y a adaptarme a las necesidades del cliente sin perder el foco en la calidad del resultado final.
-
----
-
-# Tecnologías utilizadas
-
-* WordPress.
-* PHP.
-* HTML.
-* CSS.
-* JavaScript.
-* Google reCAPTCHA.
-* Google Business Profile.
-* SEO On-Page.
+También entendí que el mantenimiento no es un trabajo menor: es lo que hace que un producto siga siendo útil meses después de su lanzamiento.
 
 ---
 
 # Mi papel
 
-* Análisis de requisitos.
-* Desarrollo del sitio web.
-* Optimización SEO.
-* Configuración técnica.
-* Protección contra spam.
-* Optimización para dispositivos móviles.
-* Despliegue.
-* Soporte durante la entrega del proyecto.
+* Revisión funcional y detección de mejoras.
+* Optimización para móviles.
+* Mejoras de experiencia de usuario.
+* Mantenimiento y evolución continua.
 
 ---
 
 # Qué representa este proyecto
 
-Santa Fe Construcciones representa una lección que considero muy importante.
+OnaDance representa la cara menos visible pero más constante del desarrollo: estar ahí cuando el cliente te necesita.
 
-La mejor tecnología no siempre es la que uno habría elegido.
+No todos los proyectos son un lanzamiento espectacular.
 
-La mejor tecnología es aquella que permite entregar valor al cliente de la forma más adecuada para su contexto.
-
-Este proyecto reforzó una idea que intento aplicar desde entonces:
-
-Antes que defender una herramienta, prefiero construir una buena solución.
+Algunos son la prueba de que un cliente confía en ti mes tras mes.

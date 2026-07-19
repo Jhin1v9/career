@@ -2,17 +2,17 @@
 
 ## Estado
 
-Producto interno · Desarrollo activo
+Producto interno · Vitrine en producción · Nuevas capacidades en desarrollo
 
 ---
 
 # ¿Qué es NEXO Store?
 
-NEXO Store es el repositorio central de productos digitales de NEXO Digital.
+NEXO Store es la vitrine pública del ecosistema NEXO Digital: una app store propia donde todos los productos que desarrollamos están organizados como un catálogo navegable.
 
-Nació con una idea muy sencilla: cada vez que desarrollábamos una herramienta, una plantilla o una aplicación útil, terminaba guardada en diferentes carpetas, repositorios o conversaciones. Con el tiempo resultaba cada vez más difícil localizar versiones, compartir recursos entre socios o reutilizar trabajo ya realizado.
+Hoy reúne 75 productos reales —aplicaciones, TPVs, SaaS, sitios web y plantillas— con búsqueda, filtros por categoría, páginas de detalle, valoraciones y un panel de administración.
 
-Decidí construir una plataforma donde todos esos activos pudieran vivir organizados en un único lugar.
+Nació con una idea muy sencilla: cada herramienta que desarrollábamos terminaba guardada en diferentes carpetas, repositorios o conversaciones. Decidí construir un lugar donde todos esos activos pudieran vivir organizados.
 
 ---
 
@@ -32,60 +32,42 @@ Demos.
 
 Versiones de prueba.
 
-Recursos internos.
-
 Todo terminaba repartido entre distintos repositorios y carpetas.
 
 Sabía que, si seguíamos creciendo, esa desorganización acabaría convirtiéndose en un problema mucho mayor.
 
 ---
 
-# La idea
+# Qué hace hoy
 
-Crear una biblioteca interna de productos.
-
-No únicamente un lugar para descargar archivos.
-
-Quería que cada proyecto pudiera tratarse como un producto con identidad propia.
-
-Con información.
-
-Versiones.
-
-Estado de desarrollo.
-
-Descripción.
-
-Y posibilidad de reutilizarse en futuros proyectos.
+* **Catálogo navegable** de 75 productos con búsqueda, filtros sincronizados con la URL y páginas de detalle con capturas, características y stack de cada producto.
+* **Sistema de valoraciones** real: las reviews se guardan en Supabase y cada nueva valoración dispara una notificación a Telegram para que Luna pueda responderla.
+* **Panel de administración** protegido (clave + lista de IPs permitidas + rate limiting) para gestionar el catálogo: crear, editar y organizar productos, con subida de imágenes.
+* **Interfaz en 3 idiomas** (español, portugués e inglés) con un sistema de i18n propio.
+* **Solicitud de proyectos personalizados** mediante un asistente de 5 pasos que parte de cualquier producto del catálogo.
+* **74 de los 75 productos tienen demo en vivo** enlazada desde su página de detalle.
 
 ---
 
-# Integración con el ecosistema
+# Cómo se construyó el catálogo
 
-Uno de los objetivos principales era evitar que NEXO Store funcionara de forma aislada.
+Llenar una tienda con 75 productos no se hace a mano.
 
-Por eso se integró con otras herramientas internas.
+Desarrollé un pipeline de ingesta que procesó unas 50 aplicaciones que teníamos archivadas: extrajo la documentación de cada una, infirió su categoría, tipo e industria, generó las miniaturas y produjo el catálogo completo ya tipado y organizado.
 
-Por ejemplo:
-
-* Landing Page Creator puede publicar automáticamente nuevas plantillas.
-* Dashboard puede gestionar recursos relacionados con proyectos.
-* Workspace centraliza el desarrollo de los repositorios.
-* Luna puede consultar y utilizar recursos almacenados cuando forman parte de determinados flujos de trabajo.
-
-Esta integración permite que una herramienta creada una sola vez pueda reutilizarse muchas veces sin trabajo adicional.
+Fue un ejercicio de automatización aplicada a nuestro propio caos.
 
 ---
 
-# Filosofía del proyecto
+# La visión: el ciclo con Landing Page Creator
 
-Con frecuencia, cuando desarrollamos software, tendemos a pensar únicamente en terminar el proyecto actual.
+Aquí es donde NEXO Store se conecta con el resto del ecosistema.
 
-Con NEXO Store intenté cambiar esa mentalidad.
+La idea: cuando un usuario crea una landing page en Landing Page Creator, Luna se encarga de sanitizarla —eliminar logotipos, nombres y cualquier dato personal— y la convierte en una plantilla genérica que llega a la Store. Allí puede reutilizarse, y el creador recibe créditos dentro de la plataforma.
 
-Cada aplicación desarrollada puede convertirse en un activo reutilizable para futuros clientes.
+Cuanta más gente crea, más plantillas hay. Cuantas más plantillas hay, más útil es la plataforma.
 
-Eso reduce tiempo de desarrollo, mejora la consistencia entre proyectos y facilita mantener un ecosistema cada vez más sólido.
+Esa integración ya funciona: el modelo de datos de plantillas (con estados de revisión, precio virtual y tokens de vista previa) y un adaptador que convierte las plantillas del LP Creator al formato de la Store, cubierto por tests, permiten que las plantillas sanitizadas lleguen automáticamente al catálogo. Decenas de plantillas ya han hecho ese recorrido en producción.
 
 ---
 
@@ -97,22 +79,23 @@ Muchas veces el verdadero valor no está únicamente en construir aplicaciones.
 
 Está en construir sistemas capaces de aprovechar todo lo que ya hemos construido anteriormente.
 
-También aprendí la importancia de organizar el conocimiento técnico de una empresa.
-
-Cuando la información está bien estructurada, resulta mucho más sencillo seguir creciendo.
+También aprendí la importancia de organizar el conocimiento técnico de una empresa: cuando la información está bien estructurada, resulta mucho más sencillo seguir creciendo.
 
 ---
 
 # Tecnologías utilizadas
 
-* React.
-* TypeScript.
-* Tailwind CSS.
-* Node.js.
-* Supabase.
-* PostgreSQL.
-* Git.
-* Vercel.
+* Next.js 16 (App Router).
+* React 19.
+* TypeScript estricto.
+* Tailwind CSS v4.
+* Zustand.
+* Framer Motion.
+* Zod.
+* Supabase (valoraciones).
+* Vitest (34 tests).
+* Docker, PM2.
+* i18n propio (ES / PT / EN).
 
 ---
 
@@ -122,9 +105,9 @@ Cuando la información está bien estructurada, resulta mucho más sencillo segu
 * Diseño del producto.
 * Arquitectura.
 * Desarrollo Full Stack.
+* Pipeline de ingesta del catálogo.
+* Panel de administración.
 * Integración con el ecosistema de NEXO Digital.
-* Gestión de activos digitales.
-* Evolución continua.
 
 ---
 
